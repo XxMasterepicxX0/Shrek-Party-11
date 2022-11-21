@@ -10,10 +10,12 @@ C_WIDTH, C_HEIGHT = 60, 100
 CHARACTER = pygame.image.load(os.path.join("Assets", "character.png"))
 CHARACTER = pygame.transform.scale(CHARACTER, (C_WIDTH, C_HEIGHT))
 
-
 #Creates window
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Shrek Party 11")
+
+#Max_attack = 4
+#action_attack = []
 
 #players movement
 def movement(key_pressed, player):
@@ -47,7 +49,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-
+        
+        """        
+        if  event.type == pygame.KEYDOWN:
+             if event.key == pygame.K_LCTRL and len(action_attack) < Max_attack:
+                  attack = pygame.Rect(player.x + player.width, player.y + player.height/2, 5,5 )
+                  action_attack.append(attack)
+"""  
         #I dont know if this work lol
         """
         This should pass the key pressed to the movement function, and the movement function should take that and run it through an if statement.
@@ -57,7 +65,7 @@ def main():
         key_pressed = pygame.key.get_pressed()
         movement(key_pressed, player)
         
-        
+        #print(action_attack)
         draw_window(player)
 
     pygame. quit()
