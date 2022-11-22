@@ -6,6 +6,7 @@ class Player_CLASS():
         self.player = player
         self.rect = pygame.Rect((x, y, C_WIDTH, C_HEIGHT))
 
+    """"    
     def movement(key_pressed, player):
         #left
         if key_pressed[pygame.K_a] and player.x - VEL > 0:
@@ -19,3 +20,5 @@ class Player_CLASS():
         #down
         if key_pressed[pygame.K_s] and player.y + VEL + player.height < HEIGHT:
              player.y += VEL
+
+     """
