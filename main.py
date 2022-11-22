@@ -1,16 +1,11 @@
 import pygame
 import sys
 from setting import *
-from player import Player_CLASS
-
-
-
-
-players = Player_CLASS(1, 200, 310)
+from background import BackGround
 
 class Game:
     def __init__(self):
-
+        #initialize all imported pygame modules
         pygame.init()
 
         # Creates window
@@ -18,26 +13,22 @@ class Game:
         pygame.display.set_caption("Shrek Party 11")
 
         self.clock = pygame.time.Clock()
-        
-    def draw_window(self, players):
-            self.WIN.fill(COLOR)
-            self.WIN.blit(CHARACTER, (players.x,players.y))
-            pygame.display.update()
-
+    
+    backg_image = BackGround()
+    
+    # main game loop
     def run(self):
-        player = pygame.Rect(self.x, self.y, C_WIDTH, C_HEIGHT )
-
         while True:
-            self.clock.tick(FPS)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
 
-            key_pressed = pygame.key.get_pressed()
-            #players.movement(key_pressed, players)
+            self.WIN.fill(COLOR)
+            self.backg_image.draw_background()
+            pygame.display.update()
+            self.clock.tick(FPS)
 
-            self.draw_window(players)
 
 if __name__ == '__main__':
     game = Game()
