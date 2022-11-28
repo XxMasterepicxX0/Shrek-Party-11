@@ -15,7 +15,7 @@ class Game:
 
         """
         I will need to come back to this one
-        I was planning of having multiple but there is a issues with how convert_alpha is proccess
+        I was planning of having multiple levels but there is a issues with how convert_alpha is proccess
         The goal is to have a background class that will allow for multiple levels
         or I become lazy and say no
         """
@@ -44,6 +44,9 @@ class Game:
             #uses the objects that were created and draws them using the player class draw function
             self.player1.draw(self.WIN)
             self.player2.draw(self.WIN)
+            #uses the movement function to move the players.
+            self.player1.movement(WIDTH)
+            self.player2.movement(WIDTH)
             #updates the screen
             pygame.display.update()
             #makes the game tick every FPS OR EVERY SET NUMBER
